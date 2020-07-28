@@ -1,8 +1,5 @@
-select distinct userid, amount from order 
-group by userid order by paytime limit 1;
-
 use world;
-CREATE TABLE `NYAB` (
+CREATE TABLE if not exists `NYAB` (
   `id` integer default null,
   `name` varchar(255) DEFAULT NULL,
   `host_id` integer DEFAULT NULL,
@@ -20,3 +17,8 @@ CREATE TABLE `NYAB` (
   `calculated_host_listings_count` integer default null,
   `availability_365` integer default null
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+LOAD DATA LOCAL INFILE ' C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/AB_NYC_2019.scv' 
+INTO TABLE nyab 
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
