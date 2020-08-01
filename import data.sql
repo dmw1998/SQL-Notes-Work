@@ -18,6 +18,7 @@ CREATE TABLE if not exists `NYAB` (
   `availability_365` integer default null
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+/* 在命令中用管理员身份运行 */
 LOAD DATA LOCAL INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/AB_NYC_2019.csv'
 into table NYAB
 FIELDS TERMINATED BY ','   
